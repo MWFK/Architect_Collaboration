@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ParcelleDeTerre.Domaine.Entities.Architecte>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroArchitecte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombresAnneesExperiences)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreProjetsEncours)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroArchitecte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombresAnneesExperiences)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreProjetsEncours)
+        </td>
+        
+        <td>
+           |
+            @Html.ActionLink("Plus de Détails", "Details", new { id=item.NumeroArchitecte}) |
+            
+        </td>
+    </tr>
+}
+
+</table>

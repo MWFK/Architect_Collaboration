@@ -1,0 +1,101 @@
+﻿@model ParcelleDeTerre.Domaine.Entities.PlanVM
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Plan</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateDebut, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateDebut, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateDebut, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DureeRealisation, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DureeRealisation, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DureeRealisation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+     <div class="form-group">
+         @Html.LabelFor(model => model.Surface, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-10">
+             @Html.EditorFor(model => model.Surface, new { htmlAttributes = new { @class = "form-control" } })
+             @Html.ValidationMessageFor(model => model.Surface, "", new { @class = "text-danger" })
+         </div>
+     </div>
+@*
+    <div class="form-group">
+         @Html.LabelFor(model => model.ImageName, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-10">
+             @Html.EditorFor(model => model.ImageName, new { htmlAttributes = new { @class = "form-control" } })
+             @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
+         </div>
+     </div>
+*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreEtages, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreEtages, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreEtages, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombrePieces, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombrePieces, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombrePieces, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Architecte, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("architectes", (SelectList)ViewData["Architecte"])
+                @Html.ValidationMessageFor(model => model.NumeroArchitecte)
+            </div>
+
+
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Parcelle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="col-md-10">
+                    @Html.DropDownList("parcelles", (SelectList)ViewData["Parcelle"])
+                    @Html.ValidationMessageFor(model => model.NumeroParcelle)
+                </div>
+
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
